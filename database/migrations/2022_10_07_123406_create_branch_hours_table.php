@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('business_hours', function (Blueprint $table) {
+        Schema::create('branch_hours', function (Blueprint $table) {
             $table->id();
             $table->foreignId('branch_id')->constrained();
             $table->string('day');
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('business_hours');
+        Schema::dropIfExists('branch_hours');
     }
 };
