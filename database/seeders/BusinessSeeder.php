@@ -18,7 +18,7 @@ class BusinessSeeder extends Seeder
         $business = new Business();
         $business->name = "Bin Dawood";
         $business->website = "bindawood.com";
-        $business->business_type = 3;
+        $business->business_type_id = 3;
         $business->city = "Madinah";
         $business->country = "Saudi Arabia";
         $business->mobile = "0537263119";

@@ -1,5 +1,5 @@
 php artisan make:controller Admin/DashboardController
- php artisan  make:model business -m // Making model with table (migration)
+ php artisan  make:model Business -m // Making model with table (migration)
 php artisan migrate
 php artisan make:migration create_business_types_table
 php artisan migrate:fresh

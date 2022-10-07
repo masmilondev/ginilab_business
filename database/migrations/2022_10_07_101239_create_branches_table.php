@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('businesses', function (Blueprint $table) {
+        Schema::create('branches', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('business_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->string('name');
-            $table->string('website')->nullable();
-            $table->string('playstore_url')->nullable();
-            $table->string('appstore_url')->nullable();
-            $table->foreignId('business_type_id')->constrained();
             $table->string('house')->nullable();
             $table->string('street')->nullable();
             $table->string('zone')->nullable();
@@ -27,6 +24,15 @@ return new class extends Migration
             $table->string('country');
             $table->string('mobile', 15);
             $table->string('email');
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
+            $table->double('vat')->default(0);
+            $table->string('vat_registration_number')->nullable();
+            $table->boolean('is_halal')->default(true);
+            $table->boolean('cloud_sync')->default(true);
+            $table->boolean('online_pre_order')->default(false);
+            $table->dateTime('busy_until')->nullable();
+            $table->foreignId('service_type_id')->constrained();
             $table->timestamps();
         });
     }
@@ -38,6 +44,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('businesses');
+        Schema::dropIfExists('branches');
     }
 };
