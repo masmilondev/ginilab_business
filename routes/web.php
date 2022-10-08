@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BusinessController;
 use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,9 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/business-setup', [DashboardController::class, 'businessSetup']);
+
+Route::resource('business', BusinessController::class);
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

@@ -1,0 +1,62 @@
+Post has many comments
+One to many relationship
+---------------------------
+Table->post = [
+    {
+        id: 1,
+        title: "Post title 1"
+    },
+    {
+        id: 2,
+        title: "Post title 2"
+        // comments->HasMany
+    },
+]
+
+
+Table->comments = [
+    {
+        id: 1,
+        post_id: 2,
+        details: "This is a comments",
+    },
+    {
+        id: 2,
+        post_id: 2, post->BelongsTo
+        details: "This is a another comment",
+    }
+]
+
+
+
+One post has many tags and one tags has many post
+So the relationship is Many to many relationship
+--------------------------------
+Table->post = [
+    {
+        id: 1,
+        title: "Post title 1"
+    },
+    {
+        id: 2,
+        title: "Post title 2"
+        // Tags->belongsToMany(Tag::class)
+    },
+]
+
+
+Table->Tags = [
+    {
+        id: 1,
+        title: "Good",
+         // Tags->belongsToMany(Post::class)
+    },
+    {
+        id: 2,
+        title: "Bad",
+    },
+    {
+        id: 3,
+        title: "Normal",
+    },
+]

@@ -6,3 +6,6 @@ php artisan migrate:fresh
 php artisan make:factory BusinessFactory
 php artisan make:seeder BusinessTypeSeeder
 php artisan migrate:fresh --seed
+php artisan make:provider RepositoryServiceProvider
+php artisan make:controller Admin/BusinessController --resource
+php artisan make:request BusinessRequest

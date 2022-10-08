@@ -14,7 +14,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <link rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
         <!-- Font Awesome Icons -->
-        <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+        {{-- <link rel="stylesheet" href="admin/plugins/fontawesome-free/css/all.min.css"> --}}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!-- Theme style -->
         <link rel="stylesheet" href="admin/dist/css/adminlte.min.css">
     </head>
@@ -29,94 +32,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Main Sidebar Container -->
             @include('admin.layouts.left_nav')
             <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
-                <!-- Content Header (Page header) -->
-                <div class="content-header">
-                    <div class="container-fluid">
-                        <div class="row mb-2">
-                            <div class="col-sm-6">
-                                <h1 class="m-0">Starter Page</h1>
-                            </div><!-- /.col -->
-                            <div class="col-sm-6">
-                                <ol class="breadcrumb float-sm-right">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active">Starter Page</li>
-                                </ol>
-                            </div><!-- /.col -->
-                        </div><!-- /.row -->
-                    </div><!-- /.container-fluid -->
-                </div>
-                <!-- /.content-header -->
-
-                <!-- Main content -->
-                <div class="content">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-
-                                        <p class="card-text">
-                                            Some quick example text to build on the card title and make up the bulk of
-                                            the card's
-                                            content.
-                                        </p>
-
-                                        <a href="#" class="card-link">Card link</a>
-                                        <a href="#" class="card-link">Another link</a>
-                                    </div>
-                                </div>
-
-                                <div class="card card-primary card-outline">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-
-                                        <p class="card-text">
-                                            Some quick example text to build on the card title and make up the bulk of
-                                            the card's
-                                            content.
-                                        </p>
-                                        <a href="#" class="card-link">Card link</a>
-                                        <a href="#" class="card-link">Another link</a>
-                                    </div>
-                                </div><!-- /.card -->
-                            </div>
-                            <!-- /.col-md-6 -->
-                            <div class="col-lg-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="m-0">Featured</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <h6 class="card-title">Special title treatment</h6>
-
-                                        <p class="card-text">With supporting text below as a natural lead-in to
-                                            additional content.</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-
-                                <div class="card card-primary card-outline">
-                                    <div class="card-header">
-                                        <h5 class="m-0">Featured</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <h6 class="card-title">Special title treatment</h6>
-
-                                        <p class="card-text">With supporting text below as a natural lead-in to
-                                            additional content.</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.col-md-6 -->
-                        </div>
-                        <!-- /.row -->
-                    </div><!-- /.container-fluid -->
-                </div>
-                <!-- /.content -->
-            </div>
+            @yield('content')
             <!-- /.content-wrapper -->
 
             <!-- Control Sidebar -->
@@ -133,23 +49,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <footer class="main-footer">
                 <!-- To the right -->
                 <div class="float-right d-none d-sm-inline">
-                    Anything you want
+                    Easy business for you
                 </div>
                 <!-- Default to the left -->
-                <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
+                <strong>Copyright &copy; 2021-2022 <a href="https://ginilab.com">Ginilab</a>.</strong> All rights
                 reserved.
             </footer>
         </div>
         <!-- ./wrapper -->
 
         <!-- REQUIRED SCRIPTS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+            integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"
+            integrity="sha512-wV7Yj1alIZDqZFCUQJy85VN+qvEIly93fIQAN7iqDFCPEucLCeNFz4r35FCo9s6WrpdDQPi80xbljXB8Bjtvcg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
 
         <!-- jQuery -->
-        <script src="plugins/jquery/jquery.min.js"></script>
+        {{-- <script src="plugins/jquery/jquery.min.js"></script>
         <!-- Bootstrap 4 -->
         <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
         <!-- AdminLTE App -->
-        <script src="admin/dist/js/adminlte.min.js"></script>
+        <script src="admin/dist/js/adminlte.min.js"></script> --}}
     </body>
 
 </html>
