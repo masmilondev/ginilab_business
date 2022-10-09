@@ -89,9 +89,18 @@
                                             value="{{ $business->city }}" required>
                                     </div>
                                     <div class="col-lg-6 mt-3">
-                                        <label for="country" class="form-label">Country</label>
-                                        <input type="text" class="form-control" id="country" name="country"
-                                            placeholder="" value="{{ $business->country }}" required>
+                                        <label for="country" class="form-label">Country <span style="color: green">({{
+                                                $business->country }})</span></label>
+                                        <select name="country" class="form-control" id="country" required>
+                                            <option value="Saudi Arabia" @selected($business->country == "Saudi
+                                                Arabia")>Saudi Arabia</option>
+                                            <option value="Bangladesh" @selected($business->country ==
+                                                "Bangladesh")>Bangladesh</option>
+                                            <option value="United Kingdom" @selected($business->country == "United
+                                                Kingdom")>United Kingdom</option>
+                                            <option value="United state of America" @selected($business->country ==
+                                                "United state of America")>United Kingdom</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="row col-lg-12">

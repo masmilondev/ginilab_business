@@ -77,9 +77,18 @@
                                             value="{{ $branch->city }}" required>
                                     </div>
                                     <div class="col-lg-6 mt-3">
-                                        <label for="country" class="form-label">Country</label>
-                                        <input type="text" class="form-control" id="country" name="country"
-                                            placeholder="" value="{{ $branch->country }}" required>
+                                        <label for="country" class="form-label">Country <span style="color: green">({{
+                                                $branch->country }})</span></label>
+                                        <select name="country" class="form-control" id="country" required>
+                                            <option value="Saudi Arabia" @selected($branch->country == "Saudi
+                                                Arabia")>Saudi Arabia</option>
+                                            <option value="Bangladesh" @selected($branch->country ==
+                                                "Bangladesh")>Bangladesh</option>
+                                            <option value="United Kingdom" @selected($branch->country == "United
+                                                Kingdom")>United Kingdom</option>
+                                            <option value="United state of America" @selected($branch->country ==
+                                                "United state of America")>United Kingdom</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="row col-lg-12">
