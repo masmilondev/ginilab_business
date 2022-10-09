@@ -19,7 +19,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!-- Theme style -->
-        <link rel="stylesheet" href="admin/dist/css/adminlte.min.css">
+        <link rel="stylesheet" href="/admin_dashbaord/css/adminlte.min.css">
     </head>
 
     <body class="hold-transition sidebar-mini">

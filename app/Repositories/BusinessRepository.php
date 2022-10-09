@@ -49,16 +49,4 @@ class BusinessRepository extends BaseRepository implements IBusinessRepository
             return false;
         }
     }
-
-    public function getBranches($id)
-    {
-    }
-
-    public function getLanguages($id)
-    {
-    }
-
-    public function getCurrencies($id)
-    {
-    }
 }
