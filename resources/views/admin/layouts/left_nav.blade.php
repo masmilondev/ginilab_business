@@ -38,7 +38,7 @@
                     </a>
                     <ul class="nav nav-treeview" style="display: block;">
                         <li class="nav-item">
-                            <a href="{{ url('/admin/business-setup') }}"
+                            <a href="{{ url('/business-setup') }}"
                                 class="nav-link {{ $route == '/business-setup' ? 'active' : '' }}">
 
                                 <i class="far fa-circle nav-icon"></i>
@@ -46,20 +46,20 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('/admin/branch-setup') }}"
+                            <a href="{{ url('/branch-setup') }}"
                                 class="nav-link {{ $route == '/branch-setup' ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Business Branch</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('/admin/currencies') }}" class="nav-link">
+                            <a href="{{ url('/currencies') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Currencies</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('/admin/languages') }}" class="nav-link">
+                            <a href="{{ url('/languages') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Languages</p>
                             </a>
