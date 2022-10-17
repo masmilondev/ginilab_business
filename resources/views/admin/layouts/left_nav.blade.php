@@ -66,6 +66,13 @@
                                 <p>Brands</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/dashboard/category') }}"
+                                class="nav-link {{ $route == '/dashboard/category' ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Categories</p>
+                            </a>
+                        </li>
                         {{-- <li class="nav-item">
                             <a href="{{ url('/dashboard/currencies') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>

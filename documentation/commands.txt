@@ -9,3 +9,4 @@ php artisan migrate:fresh --seed
 php artisan make:provider RepositoryServiceProvider
 php artisan make:controller Admin/BusinessController --resource
 php artisan make:request BusinessRequest
+php artisan storage:link

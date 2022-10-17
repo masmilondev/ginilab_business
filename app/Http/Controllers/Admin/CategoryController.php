@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoryRequest;
 use App\Repositories\CategoryRepository;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class CategoryController extends Controller
     {
         $this->categoryRepository = $categoryRepository;
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +23,17 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        // Get business id
+        $businessId = auth()->user()->businesses->first()->id;
+        $categories = $this->categoryRepository->getCategories($businessId);
+        $data['categories'] = $categories;
+        $data['route'] = '/dashboard/category';
+        $data['colors'] = ["primary", "secondary", "success", "danger", "warning", "info", "dark"];
+        $data['show_on'] = ['online', 'offline', 'all'];
+
+        // return response()->json($data);
+
+        return view('admin.category.index', $data);
     }
 
     /**
@@ -41,9 +52,20 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        //
+        $category = $this->categoryRepository->createCategory($request);
+
+        // return response()->json($category);
+
+        if ($category) {
+            // Show flash message
+            flash('Category created successfully')->success();
+            return redirect()->back()->with('success', 'Category created successfully');
+        } else {
+            // Show flash message
+            return redirect()->back()->with('error', 'Something went wrong');
+        }
     }
 
     /**
