@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\UnitRepository;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class UnitController extends Controller
@@ -22,7 +23,17 @@ class UnitController extends Controller
      */
     public function index()
     {
-        //
+        // Get user with businesses
+        $user = auth()->user();
+        $businesses = $user->businesses;
+        $business = $businesses->first();
+
+        $units = $this->unitRepository->getUnits($business->id);
+
+        $data['route'] = '/dashboard/unit';
+        $data['units'] = $units;
+
+        return View('admin.unit.index', $data);
     }
 
     /**
@@ -44,6 +55,7 @@ class UnitController extends Controller
     public function store(Request $request)
     {
         //
+
     }
 
     /**
@@ -76,8 +88,27 @@ class UnitController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {   
+        if (auth()->check()) {
+            $isSaved = $this->unitRepository->updateUnit($request, $id);
+
+            if ($isSaved) {
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Unit updated successfully',
+                ]);
+            } else {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Unit update failed',
+                ]);
+            }
+        }
+
+        return response()->json([
+            'success' => false,
+            'message' => 'Unauthorized'
+        ]);
     }
 
     /**
@@ -88,6 +119,30 @@ class UnitController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // Check is user is logged in
+        if (auth()->check()) {
+            $unit = $this->unitRepository->getUnit($id);
+
+            if ($unit) {
+                try {
+                    $unit->delete();
+
+                    return response()->json([
+                        'success' => true,
+                        'message' => 'Unit deleted successfully',
+                    ]);
+                } catch (\Throwable $th) {
+                    return response()->json([
+                        'success' => false,
+                        'message' => 'Unit delete failed',
+                    ]);
+                }
+            } else {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Unit not found',
+                ]);
+            }
+        }
     }
 }

@@ -52,6 +52,13 @@
                                 <p>Business Branch</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/dashboard/unit') }}"
+                                class="nav-link {{ $route == '/dashboard/unit' ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Units</p>
+                            </a>
+                        </li>
                         {{-- <li class="nav-item">
                             <a href="{{ url('/dashboard/currencies') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>

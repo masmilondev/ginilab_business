@@ -3,17 +3,25 @@
 namespace App\Providers;
 
 use App\Interfaces\IBranchRepository;
+use App\Interfaces\IBrandRepository;
 use App\Interfaces\IBusinessRepository;
 use App\Interfaces\IBusinessTypeRepository;
+use App\Interfaces\ICategoryRepository;
 use App\Interfaces\ICurrencyRepository;
 use App\Interfaces\ILanguageRepository;
+use App\Interfaces\IProductRepository;
 use App\Interfaces\IServiceTypesRepository;
+use App\Interfaces\IUnitRepository;
 use App\Repositories\BranchRepository;
+use App\Repositories\BrandRepository;
 use App\Repositories\BusinessRepository;
 use App\Repositories\BusinessTypeRepository;
+use App\Repositories\CategoryRepository;
 use App\Repositories\CurrencyRepository;
 use App\Repositories\LanguageRepository;
+use App\Repositories\ProductRepository;
 use App\Repositories\ServiceTypesRepository;
+use App\Repositories\UnitRepository;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider

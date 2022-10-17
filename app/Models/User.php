@@ -41,4 +41,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Get businesses of the user from the business_user table
+    public function businesses()
+    {   
+        // First param is relate
+        // Second param is the table name. If the name convention is not followed, then it should be specified
+        // Third param is the foreign key of the current model
+        // Fourth param is the foreign key of the related model
+        // return $this->belongsToMany(Business::class);
+        return $this->belongsToMany(Business::class, 'business_user', 'user_id', 'business_id');
+    }
+    
 }
