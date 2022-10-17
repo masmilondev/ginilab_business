@@ -49,6 +49,13 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
+        // If user is super admin then redirect to dashboard else redirect to login
+        if ($user->is_superadmin) {
+            return redirect(RouteServiceProvider::HOME);
+        } else {
+            return redirect(RouteServiceProvider::LOGIN);
+        }
+
         return redirect(RouteServiceProvider::HOME);
     }
 }

@@ -22,12 +22,17 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
+            UserSeeder::class,
             CurrencySeeder::class,
             LanguageSeeder::class,
             BusinessTypeSeeder::class,
-            BusinessSeeder::class,
             ServiceTypeSeeder::class,
+            BusinessSeeder::class,
             BranchSeeder::class,
+            UnitSeeder::class,
+            BrandSeeder::class,
+            CategorySeeder::class,
+            ProductSeeder::class,
         ]);
     }
 }

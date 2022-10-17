@@ -22,7 +22,7 @@ class WithAdmin
         }
 
         // Check if user is admin
-        if (!auth()->user()->is_super_admin) {
+        if (!auth()->user()->is_superadmin) {
             return redirect()->route('dashboard');
         }
 

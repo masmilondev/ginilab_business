@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->boolean('is_admin')->default(false)->after('password');
-            $table->boolean('is_superadmin')->default(false)->after('is_admin');
+        Schema::create('brands', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('business_id')->constrained('businesses')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('name');
+            $table->string('image')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -26,9 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('is_admin');
-            $table->dropColumn('is_superadmin');
-        });
+        Schema::dropIfExists('brands');
     }
 };
