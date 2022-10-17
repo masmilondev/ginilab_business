@@ -31,6 +31,15 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(ILanguageRepository::class, LanguageRepository::class);
         $this->app->bind(ICurrencyRepository::class, CurrencyRepository::class);
         $this->app->bind(IServiceTypesRepository::class, ServiceTypesRepository::class);
+        
+        // Product repository
+        $this->app->bind(IProductRepository::class, ProductRepository::class);
+        // Unit repository
+        $this->app->bind(IUnitRepository::class, UnitRepository::class);
+        // Category repository
+        $this->app->bind(ICategoryRepository::class, CategoryRepository::class);
+        // Brand repository
+        $this->app->bind(IBrandRepository::class, BrandRepository::class);
     }
 
     /**
