@@ -12,7 +12,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Admin</a></li>
+                        <li class="breadcrumb-item"><a href="#">Dashboard/branch-setup</a></li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -25,7 +25,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <form action="{{ url("admin/branch-setup/$branch->id") }}" method="post">
+                    <form action="{{ url("/dashboard/branch-setup/$branch->id") }}" method="post">
                         @csrf
                         @method('PUT')
 

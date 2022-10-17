@@ -7,7 +7,7 @@
                 <img src="/admin_dashbaord/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Hello Milon</a>
+                <a href="#" class="d-block">Hello {{ Auth::user()->name }}</a>
             </div>
         </div>
 
@@ -38,7 +38,7 @@
                     </a>
                     <ul class="nav nav-treeview" style="display: block;">
                         <li class="nav-item">
-                            <a href="{{ url('/business-setup') }}"
+                            <a href="{{ url('/dashboard/business-setup') }}"
                                 class="nav-link {{ $route == '/business-setup' ? 'active' : '' }}">
 
                                 <i class="far fa-circle nav-icon"></i>
@@ -46,24 +46,24 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('/branch-setup') }}"
+                            <a href="{{ url('/dashboard/branch-setup') }}"
                                 class="nav-link {{ $route == '/branch-setup' ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Business Branch</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{ url('/currencies') }}" class="nav-link">
+                        {{-- <li class="nav-item">
+                            <a href="{{ url('/dashboard/currencies') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Currencies</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('/languages') }}" class="nav-link">
+                            <a href="{{ url('/dashboard/languages') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Languages</p>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </li>
             </ul>
