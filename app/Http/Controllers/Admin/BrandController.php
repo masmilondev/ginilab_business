@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\BrandRequest;
+use App\Http\Requests\BusinessRequest;
 use App\Repositories\BrandRepository;
 use Illuminate\Http\Request;
 
@@ -22,7 +24,17 @@ class BrandController extends Controller
      */
     public function index()
     {
-        //
+        // Get user with businesses
+        $user = auth()->user();
+        $businesses = $user->businesses;
+        $business = $businesses->first();
+
+        $brands = $this->brandRepository->getBrands($business->id);
+
+        $data['route'] = '/dashboard/brand';
+        $data['brands'] = $brands;
+
+        return View('admin.brand.index', $data);
     }
 
     /**
@@ -33,6 +45,10 @@ class BrandController extends Controller
     public function create()
     {
         //
+        return response()->json([
+            'success' => true,
+            'message' => 'Brand added successfully'
+        ]);
     }
 
     /**
@@ -41,9 +57,20 @@ class BrandController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BrandRequest $request)
     {
-        //
+        // Add brand
+        $user = auth()->user();
+        $businesses = $user->businesses;
+        $business = $businesses->first();
+
+        $brand = $this->brandRepository->addBrand($request, $business->id);
+
+        if ($brand) {
+            return redirect()->route('brand.index')->with('success', 'Brand added successfully');
+        } else {
+            return redirect()->route('brand.index')->with('error', 'Brand could not be added');
+        }
     }
 
     /**
@@ -77,7 +104,26 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (auth()->check()) {
+            $isSaved = $this->brandRepository->updateBrand($request, $id);
+
+            if ($isSaved) {
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Brand updated successfully',
+                ]);
+            } else {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Brand update failed',
+                ]);
+            }
+        }
+
+        return response()->json([
+            'success' => false,
+            'message' => 'Unauthorized'
+        ]);
     }
 
     /**
@@ -88,6 +134,29 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (auth()->check()) {
+            $brand = $this->brandRepository->getBrand($id);
+
+            if ($brand) {
+                try {
+                    $brand->delete();
+
+                    return response()->json([
+                        'success' => true,
+                        'message' => 'Brand deleted successfully',
+                    ]);
+                } catch (\Exception $e) {
+                    return response()->json([
+                        'success' => false,
+                        'message' => 'Brand delete failed',
+                    ]);
+                }
+            }
+        }
+
+        return response()->json([
+            'success' => false,
+            'message' => 'Unauthorized'
+        ]);
     }
 }
